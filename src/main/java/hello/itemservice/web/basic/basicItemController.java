@@ -59,7 +59,8 @@ public class basicItemController {
 
         itemRepository.save(item);
         //model.addAttribute("item", item); 자동 추가, 생략 가능
-        return "basic/item";
+        return "redirect:/basic/items/" + item.getId();
+        //return "basic/item";
     }
 
     @GetMapping("/{itemId}/edit")
