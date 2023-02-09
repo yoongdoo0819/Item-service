@@ -27,14 +27,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class basicItemController {
 
-
     private final ItemRepository itemRepository;
-    private final ItemValidator itemValidator;
-
-    @InitBinder
-    public void init(WebDataBinder dataBinder) {
-        dataBinder.addValidators(itemValidator);
-    }
 
     @GetMapping
     public String item(Model model) {
@@ -74,7 +67,7 @@ public class basicItemController {
     }
 
     @PostMapping("/add")
-    public String addItemV2(@Validated @ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+    public String addItem(@Validated @ModelAttribute Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
 
         //itemValidator.validate(item, bindingResult);
 
